@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  nginx-front:
+    image: nginx
+    volumes:
+      - ./nginx-front.conf:/etc/nginx/conf.d/default.conf
+
+  app:
+    image: nginx
+    volumes:
+      - ./app.html:/usr/share/nginx/html/index.html
+
+  nginx-maintenance:
+    image: nginx
+    volumes:
+      - ./maintenance.html:/usr/share/nginx/html/index.html
+      - ./maintenance.conf:/etc/nginx/conf.d/default.conf
